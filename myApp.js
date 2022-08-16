@@ -6,7 +6,7 @@ app.get("/", function (request, response) {
   response.send("Hello Express");
 });
 */
-let absolutePath = __dirname + relativePath / file.ext;
+let absolutePath = __dirname + "/views/index.html";
 
 app.get("/", (req, res) => {
   res.sendFile(absolutePath);
