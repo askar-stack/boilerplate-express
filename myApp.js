@@ -21,12 +21,12 @@ app.use("/", express.static(absPath));
 
 let jsObject = { message: "Hello json" };
 
-const mySecret = process.env["MESSAGE_STYLE"];
-
 app.get("/json", (req, res) => {
-  if (mySecret == "uppercase") {
-    jsObject.message = jsObject.message.toUpperCase();
-  }
+  let mySecret = process.env["MESSAGE_STYLE"];
+
+  mySecret == "uppercase"
+    ? (jsObject.message = jsObject.message.toUpperCase())
+    : (jsObject.message = "Hello json");
 
   res.json(jsObject);
 });
