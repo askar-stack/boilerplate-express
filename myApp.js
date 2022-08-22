@@ -11,7 +11,7 @@ app.get("/", function (request, response) {
 
 //placed logger first because express runs in order
 function logger(req, res, next) {
-  console.log("`${req.method} `${req.path} - `${req.ip}");
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
 
   next();
 }
@@ -39,5 +39,16 @@ app.get("/json", (req, res) => {
 
   res.json(jsObject);
 });
+
+app.get(
+  "/now",
+  function (req, res, next) {
+    req.time = new Date().toString();
+    next();
+  },
+  function (req, res) {
+    res.json({ time: req.time });
+  }
+);
 
 module.exports = app;
