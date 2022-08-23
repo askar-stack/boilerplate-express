@@ -57,8 +57,6 @@ app.get("/:word/echo", (req, res) => {
   const word = req.params; //so /:word points saved to this var
 
   res.json({ echo: word }); //serving up json
-
-  next();
 });
 
 module.exports = app;
