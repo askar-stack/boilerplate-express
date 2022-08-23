@@ -9,6 +9,7 @@ app.get("/", function (request, response) {
 });
 */
 
+/*
 //placed logger first because express runs in order
 function logger(req, res, next) {
   console.log(`${req.method} ${req.path} - ${req.ip}`);
@@ -17,6 +18,7 @@ function logger(req, res, next) {
 }
 
 app.use("/", logger);
+*/
 
 /*
 let absolutePath = __dirname + "/views/index.html";
