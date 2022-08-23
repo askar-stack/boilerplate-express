@@ -18,6 +18,7 @@ function logger(req, res, next) {
 
 app.use("/", logger);
 
+/*
 let absolutePath = __dirname + "/views/index.html";
 
 app.get("/", (req, res) => {
@@ -50,5 +51,14 @@ app.get(
     res.json({ time: req.time });
   }
 );
+*/
+
+app.get("/:word/echo", (req, res) => {
+  const word = req.params; //so /:word points saved to this var
+
+  res.json({ echo: word }); //serving up json
+
+  next();
+});
 
 module.exports = app;
