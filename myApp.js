@@ -2,7 +2,9 @@ let express = require("express");
 let app = express();
 console.log("Hello World");
 require("dotenv").config();
+let bodyParser = require("body-parser");
 
+app.use(bodyParser.urlencoded({ extended: false }));
 /*
 app.get("/", function (request, response) {
   response.send("Hello Express");
