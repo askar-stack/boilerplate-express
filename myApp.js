@@ -4,7 +4,7 @@ console.log("Hello World");
 require("dotenv").config();
 let bodyParser = require("body-parser");
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 /*
 app.get("/", function (request, response) {
   response.send("Hello Express");
@@ -22,7 +22,6 @@ function logger(req, res, next) {
 app.use("/", logger);
 */
 
-/*
 let absolutePath = __dirname + "/views/index.html";
 
 app.get("/", (req, res) => {
@@ -32,7 +31,7 @@ app.get("/", (req, res) => {
 const absPath = __dirname + "/public";
 
 app.use("/", express.static(absPath));
-
+/*
 let jsObject = { message: "Hello json" };
 
 app.get("/json", (req, res) => {
@@ -63,16 +62,13 @@ app.get("/:word/echo", (req, res) => {
 });
 */
 
-app
-  .route("/name")
-  .get((req, res) => {
-    var first = req.query.first;
+app.post("/name", (req, res) => {
+  var first = req.body.firstname;
 
-    var last = req.query.last;
+  var last = req.body.lastname;
 
-    var jsObj = { name: first + " " + last };
-    res.json(jsonObj);
-  })
-  .post();
+  var jsObj = { name: first + " " + last };
+  res.json(jsObj);
+});
 
 module.exports = app;
